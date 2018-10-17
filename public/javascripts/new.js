@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // grab all values from the form
       let postData = {}
       let formElements = ev.target.elements
+      console.log(formElements)
 
       for (var i = 0; i < formElements.length; i++) {
         let inputName = formElements[i].name
@@ -21,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
       axios.post('https://andy-moviedb.herokuapp.com/movies/', postData)
         .then((response) => {
           console.log(response)
-          getReports() //call this once again
         })
         .catch((error) => {
           console.log(error)

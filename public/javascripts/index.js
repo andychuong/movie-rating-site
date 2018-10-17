@@ -31,9 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // DELETE
         let del = document.createElement('a')
-        del.href = '#!'
+        del.href="#"
         del.className = "secondary-content"
         del.innerHTML = `<i class="material-icons">delete_forever</i>`
+
+        del.setAttribute('data-id', response.data[i].id)
+        del.addEventListener('click', (ev) => {
+          ev.preventDefault()
+          let recordId = ev.target.getAttribute('data-id')
+
+
+          // DELETE THIS RECORD!
+          axios.delete(`https://andy-moviedb.herokuapp.com/movies/'${recordId}`)
+            .then((response) => {
+              console.log(response)
+              ev.target.parentElement.parentElement.remove()
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
 
         // APPEND ELEMENTS
         li.appendChild(img)
