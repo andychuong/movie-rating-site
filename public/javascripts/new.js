@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (var i = 0; i < formElements.length; i++) {
         let inputName = formElements[i].name
-        if (inputName) {
+        if (inputName && formElements[i].value) {
           postData[inputName] = formElements[i].value
         }
       }
