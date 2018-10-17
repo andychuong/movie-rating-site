@@ -1,3 +1,22 @@
 body{
   padding:50;
 }
+
+.movieimage{
+  width:10%
+}
+
+.delete{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.title{
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.info{
+  font-weight:500;
+  /* text-decoration: underline; */
+}

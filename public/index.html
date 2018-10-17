@@ -5,10 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Andy's Cool Movie Place</title>
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="stylesheets/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script type="text/javascript" src="javascripts/index.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="stylesheets/materialize.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="javascripts/materialize.js"></script>
 </head>
 <body>
-  <a href="/movies">Go to Movies Index</a>
-</body>
+  <nav class="purple lighten-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Movies<i class="large material-icons">local_movies</i></a>
+      <ul class="right hide-on-med-and-down">
+        <!-- NEW MOVIE LINK -->
+        <li><a href="#">New Movie</a></li>
+      </ul>
+
+      <a href="movies/new.html" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">add_box</i></a>
+    </div>
+  </nav>
+
+
+
+  <div class="container">
+    <div class="section">
+
+    <ul class="collection" id="movieContainer">
+
+    <!-- <li class="collection-item avatar">
+      <img src="https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg" alt="" class="circle">
+      <span class="title">Harry Potter</span>
+      <p>Director: Chris Columbus <br>
+         Year: 2001 <br>
+         My Rating: 4
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">delete_forever</i></a>
+    </li>
+
+    <li class="collection-item avatar">
+      <img src="https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="" class="circle">
+      <span class="title">Harry Potter</span>
+      <p>
+        <span class= 'info'>Director:</span> Chris Columbus <br>
+        <span class= 'info'>Year:</span> 2001 <br>
+        <span class= 'info'>My Rating:</span> 4
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">delete_forever</i></a>
+    </li> -->
+
+  </ul>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer purple lighten-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Site Information</h5>
+          <p class="grey-text text-lighten-4">This is a simple movie database built with Node.js and PostgreSQL.</p>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made with <a class="purple-text text-darken-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="javascripts/init.js"></script> -->
+
+  </body>
 </html>
