@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   axios.get('https://andy-moviedb.herokuapp.com/movies/')
     .then((response) => {
       // handle success
-      console.log(response.data);
+      // console.log(response.data);
       let movies = document.getElementById('movieContainer')
-      console.log(movies);
+      // console.log(movies);
       for (var i = 0; i < response.data.length; i++) {
         // COLLECTION ITEM
         let li = document.createElement('li')
@@ -33,16 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let del = document.createElement('a')
         del.href="#"
         del.className = "secondary-content"
-        del.innerHTML = `<i class="material-icons">delete_forever</i>`
-
+        del.innerHTML = `<i class="material-icons" data-id=${response.data[i].id}>delete_forever</i>`
         del.setAttribute('data-id', response.data[i].id)
         del.addEventListener('click', (ev) => {
           ev.preventDefault()
+          // console.log(ev.target.getAttribute('data-id'))
           let recordId = ev.target.getAttribute('data-id')
+          // console.log(ev.target.parentElement.parentElement)
 
-
+          console.log("recordId: " + recordId)
           // DELETE THIS RECORD!
-          axios.delete(`https://andy-moviedb.herokuapp.com/movies/'${recordId}`)
+          axios.delete(`https://andy-moviedb.herokuapp.com/movies/${recordId}`)
             .then((response) => {
               console.log(response)
               ev.target.parentElement.parentElement.remove()
