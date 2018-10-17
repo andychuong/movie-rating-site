@@ -2,11 +2,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('movies', table => {
     table.increments()
-    table.string('title')
-    table.string('director')
-    table.integer('year')
-    table.integer('myRating')
-    table.string('posterUrl')
+    table.string('title').defaultTo('Not Given')
+    table.string('director').defaultTo('Not Given')
+    table.integer('year').defaultTo(1990)
+    table.integer('myRating').defaultTo(5)
+    table.string('posterUrl').defaultTo('http://placehold.it/600x900')
   })
 };
 

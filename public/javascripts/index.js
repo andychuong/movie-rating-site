@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   axios.get('https://andy-moviedb.herokuapp.com/movies/')
     .then((response) => {
       // handle success
-      // console.log(response.data);
       let movies = document.getElementById('movieContainer')
-      // console.log(movies);
       for (var i = 0; i < response.data.length; i++) {
         // COLLECTION ITEM
         let li = document.createElement('li')
@@ -26,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         p.innerHTML = `
         <span class= 'info'>Director:</span> ${response.data[i].director}<br>
         <span class= 'info'>Year:</span> ${response.data[i].year}<br>
-        <span class= 'info'>My Rating:</span> ${response.data[i].myRating}
-      `
+        <span class= 'info'>My Rating:</span> ${response.data[i].myRating}`
 
         // DELETE
         let del = document.createElement('a')
@@ -37,11 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         del.setAttribute('data-id', response.data[i].id)
         del.addEventListener('click', (ev) => {
           ev.preventDefault()
-          // console.log(ev.target.getAttribute('data-id'))
           let recordId = ev.target.getAttribute('data-id')
-          // console.log(ev.target.parentElement.parentElement)
 
-          console.log("recordId: " + recordId)
           // DELETE THIS RECORD!
           axios.delete(`https://andy-moviedb.herokuapp.com/movies/${recordId}`)
             .then((response) => {
