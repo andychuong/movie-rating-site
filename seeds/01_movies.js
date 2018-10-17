@@ -93,5 +93,9 @@ exports.seed = function(knex, Promise) {
           posterUrl: "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_UY268_CR3,0,182,268_AL_.jpg"
         },
       ]);
-    });
+    })
+    .then( () => {
+      return knex.raw(
+        `SELECT setval('movies_id_seq', (SELECT MAX(id) FROM movies));`)
+    })
 };
