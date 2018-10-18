@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   axios.get(`https://andy-moviedb.herokuapp.com/movies/${myParam}`)
     .then((response) => {
       // handle success
-      console.log(response)
-      
+      console.log(response.data)
+
     })
     .catch((error) => {
       // handle error
