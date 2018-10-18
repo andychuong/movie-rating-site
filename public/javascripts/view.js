@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => {
       // handle success
       console.log(response)
-      }
+      
     })
     .catch((error) => {
       // handle error
