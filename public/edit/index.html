@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Movie View</title>
+  <title>Edit</title>
 
-  <link rel="stylesheet" href="../stylesheets/view.css">
-  <script type="text/javascript" src="../javascripts/view.js"></script>
+  <link rel="stylesheet" href="../stylesheets/edit.css">
+  <script type="text/javascript" src="../javascripts/edit.js"></script>
   <!-- AXIOS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <!-- JQuery -->
@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- Materialize JS -->
   <script src="../javascripts/materialize.js"></script>
-
 </head>
 
 <body>
@@ -33,12 +32,22 @@
     </div>
   </nav>
 
-  <!-- CONTENTS -->
-  <div class="container row" id="movieDiv">
-    <div class="section col l3 s12" id="imgContainer">
-      <br>
-    </div>
-    <div class="section col l9 s12" id="infoContainer">
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="section">
+      <form id="create-report">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+        <label for="director">Director</label>
+        <input type="text" name="director" id="director">
+        <label for="year">Year</label>
+        <input type="number" name="year" id="year" placeholder="1990">
+        <label for="posterUrl">Poster URL</label>
+        <input type="text" name="posterUrl" id="posterUrl">
+        <label for="myRating">My Rating (1-10)</label>
+        <input type="number" name="myRating" id="myRating" min="1" max="10" placeholder="5">
+        <input type="submit" value="Submit" id="submit-form">
+      </form>
     </div>
   </div>
 

@@ -26,24 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class= 'info'>Year:</span> ${response.data[i].year}<br>
         <span class= 'info'>My Rating:</span> ${response.data[i].myRating}`
 
-        // Left
+        // LEFT CONTAINER
         let left = document.createElement('div')
         left.className= 'secondary-content'
 
-        // View site
-        // let newDoc = document.implementation.createHTMLDocument(response.data[i].title);
+        // VIEW SITE
+        let link = `/view/?id=${response.data[i].id}`
+        let view = document.createElement('a')
+        view.href = link
+        view.innerHTML = `<i class="material-icons">info_outline</i>`
 
         // EDIT
         let edit = document.createElement('a')
-        edit.href="#"
-        // edit.className = "secondary-content"
+        edit.href=`/edit/?id=${response.data[i].id}`
         edit.innerHTML = `<i class="material-icons" data-id=${response.data[i].id}>edit</i>`
         edit.setAttribute('data-id', response.data[i].id)
 
         // DELETE
         let del = document.createElement('a')
         del.href="#"
-        // del.className = "secondary-content"
         del.innerHTML = `<i class="material-icons" data-id=${response.data[i].id}>delete_forever</i>`
         del.setAttribute('data-id', response.data[i].id)
         del.addEventListener('click', (ev) => {
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         li.appendChild(img)
         li.appendChild(title)
         li.appendChild(p)
+        left.appendChild(view)
         left.appendChild(edit)
         left.appendChild(del)
         li.appendChild(left)

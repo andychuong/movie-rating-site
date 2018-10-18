@@ -55,58 +55,68 @@ router.patch('/:id', (req, res, next) => {
   // req.params.id
 
   knex('movies')
-  .where('id', req.params.id)
-  .then((results) => {
-    console.log('record', results);
-    // If found, go ahead and update it
-    if(results.length>0) {
-      // all good, it was found-- update it
-      let updatedMovie = results[0]
+    .where('id', req.params.id)
+    .then((results) => {
+      console.log('record', results);
+      // If found, go ahead and update it
+      if (results.length > 0) {
+        // all good, it was found-- update it
+        let updatedMovie = results[0]
 
-      if( req.body.title ) { updatedRecord.title = req.body.title }
-      if( req.body.director ) { updatedRecord.director = req.body.director }
-      if( req.body.year ) { updatedRecord.year = req.body.year }
-      if( req.body.myRating ) { updatedRecord.myRating = req.body.myRating }
-      if( req.body.posterUrl ) { updatedRecord.posterUrl = req.body.posterUrl }
+        if (req.body.title) {
+          updatedRecord.title = req.body.title
+        }
+        if (req.body.director) {
+          updatedRecord.director = req.body.director
+        }
+        if (req.body.year) {
+          updatedRecord.year = req.body.year
+        }
+        if (req.body.myRating) {
+          updatedRecord.myRating = req.body.myRating
+        }
+        if (req.body.posterUrl) {
+          updatedRecord.posterUrl = req.body.posterUrl
+        }
 
-      // UPDATE the record in the DB
-      knex('movies')
-      .update(updatedMovie)
-      .where('id', req.params.id)
-      .returning('*')
-      .then((resUpdate) => {
+        // UPDATE the record in the DB
+        knex('movies')
+          .update(updatedMovie)
+          .where('id', req.params.id)
+          .returning('*')
+          .then((resUpdate) => {
 
-        // Send back the newly updated record object
-        res.send(resUpdate)
-      })
+            // Send back the newly updated record object
+            res.send(resUpdate)
+          })
 
-    } else {
-      throw new Error('NOT FOUND.')
-    }
-  })
-  .catch((err) => {
-    next(err)
-  })
+      } else {
+        throw new Error('NOT FOUND.')
+      }
+    })
+    .catch((err) => {
+      next(err)
+    })
 })
 
 
 // DELETE ONE record for this table
 router.delete('/:id', (req, res, next) => {
-    // lookup or verify that the record specified by the given id, actually exists
-    // req.params.id
-    knex('movies')
+  // lookup or verify that the record specified by the given id, actually exists
+  // req.params.id
+  knex('movies')
     .where('id', req.params.id)
     .then((theMovies) => {
       // if it exists, delete it
-      if( theMovies.length>0 ) {
+      if (theMovies.length > 0) {
         // delete it
         knex('movies')
-        .del()
-        .where('id', req.params.id)
-        .returning('*')
-        .then((result) => {
-          res.send(result[0])
-        })
+          .del()
+          .where('id', req.params.id)
+          .returning('*')
+          .then((result) => {
+            res.send(result[0])
+          })
       } else {
         throw new Error(`Can't delete what does not exist`)
       }

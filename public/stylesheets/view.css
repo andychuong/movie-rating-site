@@ -1,0 +1,24 @@
+#movieDiv{
+  /* display:inline-block; */
+  margin-left: auto;
+  margin-right: auto;
+  padding:10px;
+
+}
+
+#imgContainer{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+#infoContainer{
+  margin-left: auto;
+  margin-right: auto;
+}
+img{
+  /* width:20% */
+}
+
+.posterImg{
+  width:100%;
+}

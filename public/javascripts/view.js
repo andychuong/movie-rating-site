@@ -1,26 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get Query # => axios.get/movies/:id??? ?
+  // GET QUERY PARAM ID
   let urlParams = new URLSearchParams(window.location.search);
   let myParam = urlParams.get('id');
-  // console.log(myParam)
+  // AXIOS GET FOR ID
   axios.get(`https://andy-moviedb.herokuapp.com/movies/${myParam}`)
     .then((response) => {
       // handle success
-      console.log(response.data[0])
+      let data = response.data[0]
+      let posterDiv = document.getElementById('imgContainer')
+      let infoDiv = document.getElementById('infoContainer')
 
-      let movies = document.getElementById('movieContainer')
+      // TITLE
+      let titleText = document.createElement('h3')
+      titleText.innerText = data.title
+
+      // IMG
       let img = document.createElement('img')
-      img.src = response.data[0].posterUrl
-      console.log(response.data[0].posterUrl)
-      img.alt = `${response.data[0].title} poster`
-      movies.appendChild(img)
+      img.src = data.posterUrl
+      img.alt = `${data.title} poster`
+      img.className = "posterImg"
+
+      // DIRECTOR
+      let directorHeader = document.createElement('h4')
+      directorHeader.innerText = "Director:"
+      let director = document.createElement('span')
+      director.innerText = "  " + data.director
+
+      // YEAR
+      let yearHeader = document.createElement('h4')
+      yearHeader.innerText = "Year:"
+      let year = document.createElement('span')
+      year.innerText = "  " + data.year
+
+      // APPEND ELEMENTS
+      posterDiv.appendChild(img)
+      infoDiv.appendChild(titleText)
+      infoDiv.appendChild(directorHeader)
+      infoDiv.appendChild(director)
+      infoDiv.appendChild(yearHeader)
+      infoDiv.appendChild(year)
 
     })
     .catch((error) => {
       // handle error
       console.log(error);
     })
-
 
 })
 
