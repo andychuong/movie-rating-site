@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => {
       // handle success
       // console.log(response.data)
+
       let movies = document.getElementById('movieContainer')
       let img = document.createElement('img')
       img.src = response.data.posterUrl
@@ -22,3 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 })
+
+
+//https://andy-moviedb.herokuapp.com/view/?id=1
