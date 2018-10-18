@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   axios.get(`https://andy-moviedb.herokuapp.com/movies/${myParam}`)
     .then((response) => {
       // handle success
-      // console.log(response.data)
+      console.log(response.data[0])
 
       let movies = document.getElementById('movieContainer')
       let img = document.createElement('img')
