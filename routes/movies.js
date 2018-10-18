@@ -64,19 +64,19 @@ router.patch('/:id', (req, res, next) => {
         let updatedMovie = results[0]
 
         if (req.body.title) {
-          updatedRecord.title = req.body.title
+          updatedMovie.title = req.body.title
         }
         if (req.body.director) {
-          updatedRecord.director = req.body.director
+          updatedMovie.director = req.body.director
         }
         if (req.body.year) {
-          updatedRecord.year = req.body.year
+          updatedMovie.year = req.body.year
         }
         if (req.body.myRating) {
-          updatedRecord.myRating = req.body.myRating
+          updatedMovie.myRating = req.body.myRating
         }
         if (req.body.posterUrl) {
-          updatedRecord.posterUrl = req.body.posterUrl
+          updatedMovie.posterUrl = req.body.posterUrl
         }
 
         // UPDATE the record in the DB
