@@ -62,7 +62,6 @@ router.patch('/:id', (req, res, next) => {
       if (results.length > 0) {
         // all good, it was found-- update it
         let updatedMovie = results[0]
-
         if (req.body.title) {
           updatedMovie.title = req.body.title
         }
