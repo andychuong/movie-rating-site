@@ -18,14 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log('postData', postData);
-
+      // AXIOS POST
       axios.post('https://andy-moviedb.herokuapp.com/movies/', postData)
         .then((response) => {
           console.log(response)
+          location.href = '../'
         })
         .catch((error) => {
           console.log(error)
         })
+
     })
   }
 })

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let url = document.getElementById('posterUrl')
         let rating = document.getElementById('myRating')
 
+        // FORM PLACEHOLDERS
         title.placeholder = data.title
         director.placeholder = data.director
         year.placeholder = data.year
@@ -27,32 +28,30 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(error);
       })
   }
+
+  // SUBMIT BUTTON
   let form = document.getElementById('create-report')
   form.addEventListener('submit', (ev) => {
     ev.preventDefault()
 
+    // CREATE NEW MOVIE OBJ
     let postData = {}
     let formElements = ev.target.elements
-    console.log(formElements)
-
     for (var i = 0; i < formElements.length; i++) {
       let inputName = formElements[i].name
       if (inputName && formElements[i].value) {
         postData[inputName] = formElements[i].value
       }
     }
+    // AXIOS PATCH
     console.log(postData)
     axios.patch(`https://andy-moviedb.herokuapp.com/movies/${myParam}`, postData)
       .then((response) => {
         console.log(response)
+        location.href = '../'
       })
       .catch((error) => {
         console.log(error)
       })
   })
-
 })
-
-
-
-//https://andy-moviedb.herokuapp.com/view/?id=1
