@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let movies = document.getElementById('movieContainer')
       let img = document.createElement('img')
-      img.src = response.data.posterUrl
-      console.log(response.data.posterUrl)
-      img.alt = `${response.data.title} poster`
+      img.src = response.data[0].posterUrl
+      console.log(response.data[0].posterUrl)
+      img.alt = `${response.data[0].title} poster`
       movies.appendChild(img)
 
     })
