@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let left = document.createElement('div')
         left.className= 'secondary-content'
 
+        // View site
+        // let newDoc = document.implementation.createHTMLDocument(response.data[i].title);
+
         // EDIT
         let edit = document.createElement('a')
         edit.href="#"
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
           axios.delete(`https://andy-moviedb.herokuapp.com/movies/${recordId}`)
             .then((response) => {
               console.log(response)
-              ev.target.parentElement.parentElement.remove()
+              ev.target.parentElement.parentElement.parentElement.remove()
             })
             .catch((err) => {
               console.log(err)
